@@ -49,7 +49,7 @@
 				android:layout_below="@id/retweet_weibo_text_in_one"
 				android:layout_centerHorizontal="true"
 				fresco:roundedCornerRadius="5dp"
-				fresco:actualImageScaleType="centerCrop"
+				fresco:actualImageScaleType="centerInside"
 				fresco:placeholderImage="@drawable/default_image_wait"
 
 				/>
