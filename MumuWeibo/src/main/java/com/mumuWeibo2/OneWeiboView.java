@@ -12,7 +12,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 public class OneWeiboView extends LinearLayout{
 	
@@ -166,7 +170,18 @@ public class OneWeiboView extends LinearLayout{
 		else
 		{
 			retWeiboPic.setVisibility(View.VISIBLE);
-			retWeiboPic.setImageURI(Uri.parse(retWeiboMiddlePicUrl));
+//			retWeiboPic.setImageURI(Uri.parse(retWeiboMiddlePicUrl));
+			Uri uri = Uri.parse(retWeiboMiddlePicUrl);
+			ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
+//					. // other setters
+			.build();
+
+			DraweeController controller = Fresco.newDraweeControllerBuilder()
+					.setImageRequest(request)
+					.setAutoPlayAnimations(true)
+//					. // other setters
+			.build();
+			retWeiboPic.setController(controller);
 			retWeiboOriginalPicUrl=retWeibo.getWeiboPicOriginal();
 		}
 		}

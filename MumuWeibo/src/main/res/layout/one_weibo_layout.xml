@@ -16,18 +16,16 @@
  	        android:layout_marginLeft="3dip"
  	        
  	        />
-     
- 	    <com.facebook.drawee.view.SimpleDraweeView
- 	        android:id="@+id/weibo_picture_in_one"
-			fresco:placeholderImage="@drawable/default_image_wait"
- 	        android:layout_width="wrap_content"
- 	        android:layout_height="100dp"
-			fresco:roundedCornerRadius="5dp"
- 	        android:layout_gravity="center_horizontal"  	        
-            android:minWidth="100dip"
-            android:minHeight="100dip"
-            android:maxHeight="100dp"
- 	        />
+
+	<com.facebook.drawee.view.SimpleDraweeView
+		android:id="@+id/weibo_picture_in_one"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
+		android:layout_gravity="center_horizontal"
+		fresco:actualImageScaleType="centerCrop"
+		fresco:placeholderImage="@drawable/default_image_wait"
+		fresco:roundedCornerRadius="5dp" />
+
  	    <RelativeLayout 
  	        android:id="@+id/weibo_msg_dialog_holder_in_one"
  	        android:layout_width="match_parent"
@@ -46,14 +44,12 @@
 
 			<com.facebook.drawee.view.SimpleDraweeView
 				android:id="@+id/retweet_weibo_picture_in_one"
-				android:layout_width="wrap_content"
+				android:layout_width="100dp"
 				android:layout_height="100dp"
 				android:layout_below="@id/retweet_weibo_text_in_one"
 				android:layout_centerHorizontal="true"
 				fresco:roundedCornerRadius="5dp"
-				android:maxHeight="100dp"
-				android:minHeight="100dip"
-				android:minWidth="100dip"
+				fresco:actualImageScaleType="centerCrop"
 				fresco:placeholderImage="@drawable/default_image_wait"
 
 				/>
