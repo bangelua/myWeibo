@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.mumuWeibo2"
-        minSdkVersion 10
-        targetSdkVersion 10
+        minSdkVersion 14
+        targetSdkVersion 14
     }
 
     buildTypes {
