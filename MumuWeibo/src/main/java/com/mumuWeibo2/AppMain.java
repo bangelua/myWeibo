@@ -1,25 +1,10 @@
 package com.mumuWeibo2;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.StreamCorruptedException;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.ActivityGroup;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.AssetFileDescriptor;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
@@ -48,6 +33,20 @@ import com.weibo.sdk.android.api.WeiboAPI.EMOTION_TYPE;
 import com.weibo.sdk.android.api.WeiboAPI.LANGUAGE;
 import com.weibo.sdk.android.net.RequestListener;
 import com.weibo.sdk.android.sso.SsoHandler;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.StreamCorruptedException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class AppMain extends ActivityGroup{
 	ImageView mainPage;
@@ -156,7 +155,7 @@ public class AppMain extends ActivityGroup{
 		
 			//初始化设置信息			
 		SharedPreferences settings=getSharedPreferences(MumuWeiboUtility.SETTING_INFO,0);
-		MumuWeiboUtility.autoShowImage=settings.getBoolean("isShowPic", true);	
+		MumuWeiboUtility.autoShowImage=settings.getBoolean("isShowPic", false);
 				
 		//从本地导入保存的公共微博列表
 		MumuWeiboUtility.ImportWeibosList(getApplicationContext(),MumuWeiboUtility.LIST_FLAG.PUBLIC);

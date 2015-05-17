@@ -1,5 +1,21 @@
 package com.mumuWeibo2;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
+import android.os.Environment;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.URLSpan;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -22,22 +38,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
-import android.os.Environment;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.URLSpan;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-
 public class MumuWeiboUtility {		
 	public static Context context;
 	public static final String fileCacheDir=Environment.getExternalStorageDirectory()+"/.mumuWeiboCache/";
@@ -48,7 +48,7 @@ public class MumuWeiboUtility {
 	//public static  String emotionSaveDir;
 	//public static  String emotionSaveDir;
 	
-	public static boolean autoShowImage;//微博是否自适应显示缩略图
+	public static boolean autoShowImage = false;//微博是否自适应显示缩略图
 	public static boolean isFlushingWeibo=false;
 	
 	public static final String SETTING_INFO="SETTING_INFOS";
