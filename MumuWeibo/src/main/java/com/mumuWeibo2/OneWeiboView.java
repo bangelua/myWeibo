@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo.State;
-import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +11,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.mumu.utils.CommonUtils;
 
 public class OneWeiboView extends LinearLayout{
 	
@@ -121,9 +117,7 @@ public class OneWeiboView extends LinearLayout{
 		{		
 			weiboPic.setVisibility(View.VISIBLE);
 			weiboOriginalPicUrl=weiboInfo.getWeiboPicOriginal();
-			weiboPic.setImageURI(Uri.parse(weiboMiddlePicUrl));
-			//if(async.mGifTask!=null)async.mGifTask.stop();
-//			async.loadBitmap(weiboPic, MumuWeiboUtility.IMAGE_TYPE.PIC,weiboMiddlePicUrl);
+			CommonUtils.draweeSupportGif(weiboPic, weiboMiddlePicUrl);
 		}
 
 		
@@ -137,53 +131,37 @@ public class OneWeiboView extends LinearLayout{
 		{
 			retweetHolder.setVisibility(ViewGroup.GONE);			
 		}
-		else{
-			
+		else {
+
 			retweetHolder.setVisibility(ViewGroup.VISIBLE);
-			if(retWeibo.isDeleted().equals("1"))
-			{
+			if (retWeibo.isDeleted().equals("1")) {
 				createTimeOfSourceWeibo.setVisibility(View.GONE);
 				weiboCountsOfSourceWeibo.setVisibility(View.GONE);
-				MumuWeiboUtility.FormatWeibo(getContext(),retWeiboText,retWeibo.getWeiboText(), false);
-				
+				MumuWeiboUtility.FormatWeibo(getContext(), retWeiboText, retWeibo.getWeiboText(), false);
+
 				retWeiboPic.setVisibility(View.GONE);
-				return;				
+				return;
 			}
-			
+
 			createTimeOfSourceWeibo.setText(MumuWeiboUtility.parseWeiboTime(retWeibo.getCreateTime()));
-			weiboCountsOfSourceWeibo.setText("转发("+retWeibo.getRepostCount()+")  评论("+retWeibo.getCommentCount()+")");
+			weiboCountsOfSourceWeibo.setText("转发(" + retWeibo.getRepostCount() + ")  评论(" + retWeibo.getCommentCount() + ")");
 			createTimeOfSourceWeibo.setVisibility(View.VISIBLE);
 			weiboCountsOfSourceWeibo.setVisibility(View.VISIBLE);
-			
-		WeiboUserInfo user=retWeibo.getWeiboUser();
-		if(user==null)return;
-		
-		MumuWeiboUtility.FormatWeibo(getContext(),retWeiboText, "@"+user.getName()+":"+retWeibo.getWeiboText(), false);
-		
-//		retWeiboSmallPicUrl=retWeibo.getWeiboPicSmall();
-		retWeiboMiddlePicUrl = retWeibo.getWeiboPicMiddle();
-		
-		if(retWeiboMiddlePicUrl==null || retWeiboMiddlePicUrl.equals("")|| isShowImage==false)
-		{
-			retWeiboPic.setVisibility(View.GONE);
-		}
-		else
-		{
-			retWeiboPic.setVisibility(View.VISIBLE);
-//			retWeiboPic.setImageURI(Uri.parse(retWeiboMiddlePicUrl));
-			Uri uri = Uri.parse(retWeiboMiddlePicUrl);
-			ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
-//					. // other setters
-			.build();
 
-			DraweeController controller = Fresco.newDraweeControllerBuilder()
-					.setImageRequest(request)
-					.setAutoPlayAnimations(true)
-//					. // other setters
-			.build();
-			retWeiboPic.setController(controller);
-			retWeiboOriginalPicUrl=retWeibo.getWeiboPicOriginal();
-		}
+			WeiboUserInfo user = retWeibo.getWeiboUser();
+			if (user == null) return;
+
+			MumuWeiboUtility.FormatWeibo(getContext(), retWeiboText, "@" + user.getName() + ":" + retWeibo.getWeiboText(), false);
+
+			retWeiboMiddlePicUrl = retWeibo.getWeiboPicMiddle();
+
+			if (retWeiboMiddlePicUrl == null || retWeiboMiddlePicUrl.equals("") || isShowImage == false) {
+				retWeiboPic.setVisibility(View.GONE);
+			} else {
+				retWeiboPic.setVisibility(View.VISIBLE);
+				CommonUtils.draweeSupportGif(retWeiboPic, retWeiboMiddlePicUrl);
+				retWeiboOriginalPicUrl = retWeibo.getWeiboPicOriginal();
+			}
 		}
 		
 		
