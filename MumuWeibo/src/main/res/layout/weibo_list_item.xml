@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fresco="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="2dip"
+	android:layout_marginBottom="2dip"
+	android:orientation="vertical"
+
+	>
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"   
+    		android:layout_marginRight="2dip"   	    
+    	    >
+ 	<com.facebook.drawee.view.SimpleDraweeView
+ 	    android:id="@+id/user_profile_image"
+ 	    android:layout_width="40dip"
+ 	    android:layout_height="40dip"
+ 	    android:layout_marginLeft="3dip"
+ 	    android:layout_marginTop="2dip"
+ 	    android:layout_alignParentLeft="true"
+		fresco:roundedCornerRadius="3dp"
+		fresco:placeholderImage="@drawable/defalut_profile_image"
+ 	    />
+    	
+    	    <TextView 
+ 	        android:id="@+id/user_screen_name"
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content" 	        
+ 	        android:textColor="#FF5400"
+ 	        android:textSize="20sp" 	 	       
+ 	        android:layout_toRightOf="@id/user_profile_image"  
+ 	      	android:layout_centerVertical="true"
+ 	        android:layout_marginLeft="5dip"   
+ 	       	/>
+    	    
+    	    <TextView 
+    	        android:id="@+id/create_time_inlist"
+    	        android:textColor="#0099FF"    	       
+    	        android:layout_width="wrap_content"
+ 	        	android:layout_height="wrap_content" 	
+	 	        android:layout_alignParentRight="true"
+	 	        android:layout_alignParentTop="true"
+	 	        android:layout_marginRight="7dip"        	
+    	        />
+    	    
+    	    
+    	</RelativeLayout>
+ 	   
+ 	    <com.mumuWeibo2.OneWeiboView
+ 	        android:id="@+id/one_weibo_view_list"
+ 	        android:layout_width="match_parent"
+ 	        android:layout_height="wrap_content"
+ 	        />
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"    
+    android:background="#ffffff" 
+    >
+    
+    <TextView 
+        android:id="@+id/tv_title_in_user_weibos"
+        android:text="用户的微博"
+        android:background="@drawable/btn_action_negative_focused"
+        android:layout_width="match_parent"
+        android:layout_height="42dip"
+        android:gravity="center"
+       	android:textColor="#ff6600"
+       	android:textSize="18sp"
+        />
+    
+    <com.mumuWeibo2.MyListView 
+        android:id="@+id/user_weibos_lv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         android:divider="@drawable/separate_line"
+        android:dividerHeight="2dip"
+        android:cacheColorHint="#00000000"
+        /> 
+    
+
+</LinearLayout>

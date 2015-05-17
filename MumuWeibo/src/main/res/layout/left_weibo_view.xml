@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:layout_marginTop="5dip"
+    android:layout_marginBottom="10dip"
+    >
+        <ImageView 
+            android:id="@+id/iv_user_profile_in_left"
+            android:src="@drawable/defalut_profile_image"
+             android:background="@drawable/profile_bd"
+            android:layout_width="40dip" 
+            android:layout_height="40dip"
+            />
+        <TextView
+            android:id="@+id/tv_user_name_in_left"
+           android:layout_marginLeft="3dip"
+            android:textSize="13sp"
+            
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textColor="#9f36a0"
+        	
+        	android:layout_toRightOf="@id/iv_user_profile_in_left"
+        	android:layout_alignTop="@id/iv_user_profile_in_left"        	
+        	/>        
+         <TextView
+        android:layout_below="@id/tv_user_name_in_left"
+        android:id="@+id/tv_weiboText_in_left_view"
+        android:text="null"
+        android:layout_marginLeft="40dip"
+        android:layout_marginRight="40dip"        
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:background="@drawable/weibodialog_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+ 
+   
+
+</RelativeLayout>

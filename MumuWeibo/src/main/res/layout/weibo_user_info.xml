@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:layout_marginLeft="1dip"
+    android:layout_marginRight="1dip"
+    >    
+   <TextView 
+            android:id="@+id/tv_user_name_in_title"           
+       		 android:textSize="18sp"
+            android:layout_width="fill_parent"                       
+            android:gravity="center"
+            android:text="用户信息"
+            android:textColor="#ff6600"
+            android:background="@drawable/btn_action_negative_focused"
+            android:layout_height="42dip"            
+            />
+        
+  
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_info_bd"
+        android:layout_margin="3dip"
+        >
+        <ImageView
+            android:id="@+id/user_profile_info"
+            android:src="@drawable/defalut_profile_image"
+            android:background="@drawable/profile_bd"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+           	android:layout_centerVertical="true"
+            />
+        
+        <TextView 
+                android:id="@+id/user_gender_location_info"
+                android:textSize="13sp"
+                android:textColor="#000000"
+                android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:text="性别，地址"
+            	android:layout_toRightOf="@id/user_profile_info"
+            	android:layout_alignBottom="@id/user_profile_info"
+            	android:layout_marginLeft="5dip"
+            	
+                />     
+                 <TextView
+                android:id="@+id/user_name_info"
+                android:textColor="#ff5400"
+                android:text="用户名"
+                android:layout_marginBottom="8dip"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:layout_above="@id/user_gender_location_info"
+            	android:layout_alignLeft="@id/user_gender_location_info"            	
+            	/>  
+               
+        
+        <Button 
+            android:id="@+id/follow_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:text="关注"
+              android:textSize="15sp"
+            android:background="@drawable/follow_button_style"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentRight="true"            
+            android:layout_marginRight="7dip"            
+            />           
+        
+    </RelativeLayout>
+    <ScrollView 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"    
+    >
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
+    <TextView 
+        android:text="简介："
+          android:textColor="#000000"
+          android:textSize="14sp"
+          android:layout_marginLeft="5dip"
+          android:layout_marginBottom="3dip"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       />
+        
+    <TextView 
+        android:id="@+id/tv_description"
+        android:text="这个家伙很神秘~"
+        android:textColor="#aaaaaa"
+        android:textSize="16sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_input_frame_normal"
+        android:layout_marginLeft="4dip"
+        android:layout_marginRight="4dip"
+       
+      
+        />
+    
+    <LinearLayout        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:background="@drawable/bg_input_frame_normal"
+          android:layout_marginTop="10dip"
+          android:paddingTop="2dip"
+           android:layout_marginLeft="4dip"
+        android:layout_marginRight="4dip"
+        >
+        
+        <RelativeLayout 
+            android:id="@+id/friends_layout"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+           
+            >
+            <TextView 
+                android:text="关注"
+                  android:textSize="16sp"
+                android:textColor="#000000"
+                android:id="@+id/following"
+                android:layout_height="wrap_content"
+            	android:layout_width="wrap_content"
+            	android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:id="@+id/following_count"
+                android:text="0"
+                  android:textSize="16sp"
+                 android:textColor="#0000ff"
+                android:layout_height="wrap_content"
+            	android:layout_width="wrap_content"
+            	android:layout_below="@id/following"
+            	android:layout_centerHorizontal="true"
+            	
+            	/>
+            
+            
+        </RelativeLayout>
+        
+         <RelativeLayout 
+             android:id="@+id/followerLayout"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+              android:layout_gravity="center_vertical"
+           
+            >
+            <TextView 
+                android:text="粉丝"
+                  android:textSize="16sp"
+                android:textColor="#000000"
+                android:id="@+id/tv_fans"
+                android:layout_height="wrap_content"
+            	android:layout_width="wrap_content"
+            	android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:id="@+id/followed_count"
+                android:text="0"
+                  android:textSize="16sp"
+                 android:textColor="#0000ff"
+                android:layout_height="wrap_content"
+            	android:layout_width="wrap_content"
+            	android:layout_below="@id/tv_fans"
+            	android:layout_centerHorizontal="true"
+            	/>
+             </RelativeLayout>
+           <RelativeLayout 
+               android:id="@+id/user_weibos_in_usershow"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+              android:layout_gravity="center_vertical"
+           
+            >
+            <TextView 
+                android:text="微博"
+                  android:textSize="16sp"
+                android:textColor="#000000"
+                android:id="@+id/tv_weibo_count"
+                android:layout_height="wrap_content"
+            	android:layout_width="wrap_content"
+            	android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:id="@+id/weibos_count"
+                android:text="0"
+                  android:textSize="16sp"
+                android:textColor="#0000ff"
+                android:layout_height="wrap_content"
+            	android:layout_width="wrap_content"
+            	android:layout_below="@id/tv_weibo_count"
+            	android:layout_centerHorizontal="true"
+            	/>
+            
+            
+        </RelativeLayout>    
+           <RelativeLayout 
+               android:id="@+id/user_favors_in_usershow"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+              android:layout_gravity="center_vertical"
+              android:visibility="gone"           
+            >
+            <TextView 
+                android:text="收藏"
+                  android:textSize="16sp"
+                android:textColor="#000000"
+                android:id="@+id/tv_favor_count"
+                android:layout_height="wrap_content"
+            	android:layout_width="wrap_content"
+            	android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:id="@+id/favors_count"
+                android:text="0"
+                  android:textSize="16sp"
+                android:textColor="#0000ff"
+                android:layout_height="wrap_content"
+            	android:layout_width="wrap_content"
+            	android:layout_below="@id/tv_favor_count"
+            	android:layout_centerHorizontal="true"
+            	
+            	/>
+            
+            
+        </RelativeLayout>      
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+         android:id="@+id/last_weibo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    <RelativeLayout 
+       
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        >
+        
+        <TextView 
+        android:text="最新一条微博："
+          android:textColor="#000000"
+          android:textSize="14sp"
+          android:layout_marginLeft="5dip"
+         android:layout_centerVertical="true"         
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       />
+        
+        <TextView 
+            android:id="@+id/create_time_in_userinfo"
+             android:layout_width="wrap_content"
+       		 android:layout_height="wrap_content"
+             android:layout_marginRight="7dip"
+              android:textColor="#ffffff"
+         	 android:textSize="13sp"
+         	 android:layout_alignParentRight="true"
+               android:layout_centerVertical="true"               
+            />
+        
+      
+    </RelativeLayout>
+      <com.mumuWeibo2.OneWeiboView
+        android:id="@+id/lastest_weibo_in_userinfo"
+        android:layout_margin="4dip"    
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_input_frame_normal"
+        />  
+    
+      
+      
+   </LinearLayout>
+    
+   
+   </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

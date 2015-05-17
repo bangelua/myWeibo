@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical" >
+    
+    <!-- 标题栏 -->
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:background="@drawable/btn_action_negative_pressed"
+         >
+        <Button 
+            android:id="@+id/bt_return_in_imageshow"
+            android:layout_alignParentLeft="true"
+             android:text="返回"
+            android:textSize="14sp"
+           	android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"
+            android:gravity="center"            
+            /> 
+        
+        <TextView 
+        android:text="图片浏览"
+        android:layout_centerInParent="true"
+         android:textColor="#003399"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"       
+        />
+        
+        <Button 
+            android:id="@+id/bt_download_image"
+            android:text="保存"
+            android:textSize="14sp"
+           	android:layout_centerVertical="true"           
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"
+            android:gravity="center"
+            android:paddingLeft="3dip"
+            android:paddingRight="3dip"
+            android:layout_alignParentRight="true"            
+            />
+        
+    </RelativeLayout>
+    
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"                      
+         android:fillViewport="true">
+    
+    <ImageView 
+        android:id="@+id/weibo_image_show"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"   
+       	android:scaleType="fitCenter"  
+       	android:adjustViewBounds="true"
+        />
+  	
+	</ScrollView>
+</LinearLayout><!-- From: file:/home/luliang/AndroidStudioProjects/MumuWeibo/MumuWeibo/src/main/res/layout/weibo_image_show.xml -->

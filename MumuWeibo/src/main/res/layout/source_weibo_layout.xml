@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"     
+    >
+    
+    <RelativeLayout  android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+    
+   
+    <ImageView 
+        android:id="@+id/iv_user_profile_in_source"
+        android:src="@drawable/defalut_profile_image"
+         android:background="@drawable/profile_bd"
+        android:layout_width="40dip"
+        android:layout_height="40dip" 
+        android:layout_marginTop="3dip"
+        />
+    <TextView
+        android:id="@+id/tv_user_name_in_source"
+        android:text="name"
+        android:textSize="20sp"
+        android:textColor="#ff5400"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_user_profile_in_source"
+        android:layout_alignBottom="@id/iv_user_profile_in_source"
+        android:layout_marginLeft="5dip"      
+        />
+    
+      <TextView 
+    	        android:id="@+id/create_time_insourceweibo"
+    	        android:textColor="#9f36a0"
+    	        android:layout_width="wrap_content"
+ 	        	android:layout_height="wrap_content" 	
+ 	        	android:layout_alignParentRight="true"  
+ 	        	android:layout_marginRight="8dip"  
+ 	        	android:layout_alignBottom="@id/tv_user_name_in_source"  
+    	        />
+    </RelativeLayout>
+    
+   
+    
+     <RelativeLayout 
+ 	        android:id="@+id/weibo_msg_dialog_holder_in_source"
+ 	        android:layout_width="match_parent"
+ 	        android:layout_height="wrap_content"
+ 	         android:background="@drawable/weibodialog_left"
+ 	         android:layout_margin="5dip" 	        
+ 	        >
+ 	    <TextView
+ 	        android:id="@+id/retweet_weibo_text_in_source"         
+ 	     		        
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content" 	        
+ 	        android:textColor="#000000"    	        
+ 	        android:textSize="16sp"
+ 	        />
+ 	    <ImageView
+ 	         android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content" 
+ 	        android:id="@+id/retweet_weibo_picture_in_source"
+ 	        android:layout_below="@id/retweet_weibo_text_in_source"
+ 	        android:layout_centerHorizontal="true"
+ 	         android:src="@drawable/default_image_wait"
+ 	        android:minWidth="50dip"
+            android:minHeight="50dip"
+ 	         android:background="@drawable/ret_image_bd"
+        	
+ 	        /> 	   	    
+ 	        
+ 	    
+ 	     <RelativeLayout
+ 	         android:layout_below="@id/retweet_weibo_picture_in_source"
+ 	        android:layout_width="fill_parent"
+ 	        android:layout_height="wrap_content" 	       
+ 	        
+ 	        >
+ 	    <TextView 
+ 	        android:id="@+id/source_from_in_sourceweibo"
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content"
+ 	        android:layout_alignParentLeft="true" 	  
+ 	        android:textColor="#9f36a0"      
+ 	        />
+ 	    
+ 	    <TextView 
+ 	        android:id="@+id/weibo_counts_in_souceweibo"
+ 	        android:text="转发()  评论()"
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content"
+ 	        android:layout_alignParentRight="true" 	 
+ 	        android:textColor="#9f36a0"         
+ 	        />
+ 	      
+ 	    </RelativeLayout>
+ 	    </RelativeLayout> 	  
+ 	    
+     
+    
+
+</LinearLayout>

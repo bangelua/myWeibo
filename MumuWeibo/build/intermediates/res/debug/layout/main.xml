@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+    <RelativeLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="47dip"
+    android:background="@drawable/btn_action_negative_focused">
+   
+   <ImageButton 
+        android:id="@+id/flushweibo"       
+        android:background="@drawable/refresh_button" 
+       	android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"   
+        android:layout_marginRight="3dip"  
+        android:padding="5dip"  
+         android:layout_alignParentRight="true"
+        />
+   <TextView 
+       android:id="@+id/seperate_line01"
+       android:layout_width="1dip"
+       android:layout_height="match_parent"
+       android:layout_marginRight="5dip"
+       android:background="#b2d5ec"
+       android:layout_toLeftOf="@id/flushweibo"
+       />
+   
+    <ImageButton 
+        android:id="@+id/sendweibo"
+       android:background="@drawable/write_button"
+        android:textSize="20sp"
+        android:padding="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"       
+        android:layout_toLeftOf="@id/seperate_line01"
+        	android:layout_centerVertical="true"
+        />
+     <TextView 
+      
+       android:layout_width="1dip"
+       android:layout_height="match_parent"
+       android:layout_marginRight="5dip"
+       android:background="#b2d5ec"
+       android:layout_toLeftOf="@id/sendweibo"
+       />
+    <TextView 
+        android:text="沐牧微博"
+        android:id="@+id/tv_title_in_mainpage"       
+       	android:layout_centerInParent="true"
+       	android:textColor="#ff6600"
+       	android:textSize="18sp"
+       	android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"       	
+        />
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/iv_log"
+        android:layout_alignParentLeft="true"
+        android:layout_width="40dip"
+       	android:layout_height="40dip"
+        fresco:roundedCornerRadius="3dp"
+        fresco:placeholderImage="@drawable/ic_launcher"
+       	/>
+   </RelativeLayout>
+   
+    <com.mumuWeibo2.MyListView
+        android:id="@+id/listview_weibo"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@drawable/separate_line"
+        android:dividerHeight="2dip"
+        android:cacheColorHint="#00000000"
+      
+        />
+    
+    <!--  
+    <ListView 
+       
+        android:id="@+id/listview_weibo"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@drawable/separate_line"
+        android:dividerHeight="2dip"
+        android:cacheColorHint="#00000000"
+        android:listSelector="@android:color/transparent"
+                
+        ></ListView>
+        -->
+</LinearLayout>
+<!-- From: file:/home/luliang/AndroidStudioProjects/MumuWeibo/MumuWeibo/src/main/res/layout/main.xml -->

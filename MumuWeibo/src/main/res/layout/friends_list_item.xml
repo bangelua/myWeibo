@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <ImageView
+ 	    android:id="@+id/user_profile_image_in_friends_list"
+ 	    android:src="@drawable/defalut_profile_image"
+ 	    android:layout_width="48dip"
+ 	    android:layout_height="48dip"
+ 	    android:layout_marginLeft="2dip"
+ 	    android:layout_alignParentLeft="true"
+ 	    android:background="@drawable/profile_bd"
+ 	    />
+    <RelativeLayout 
+         android:layout_toRightOf="@id/user_profile_image_in_friends_list"
+ 	       android:layout_width="wrap_content"
+ 	       android:layout_height="fill_parent"
+ 	        android:layout_marginLeft="5dip"  
+ 	        android:layout_centerVertical="true" 
+ 	        android:layout_alignTop="@id/user_profile_image_in_friends_list"
+        >
+    <TextView 
+ 	        android:id="@+id/user_screen_name_in_friends_list"
+ 	        android:text="username"
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content" 	        
+ 	        android:textColor="#9f36a0"
+ 	        android:textSize="16sp" 	
+ 	       	android:layout_alignParentTop="true" 
+ 	       	/>
+    <TextView 
+        android:id="@+id/user_gender_location_in_friends_list"
+        android:text="性别，地址"
+        android:textColor="#000000"
+        android:layout_below="@id/user_screen_name_in_friends_list"
+        android:layout_width="wrap_content"
+ 	    android:layout_height="wrap_content" 
+        />
+    
+    </RelativeLayout>
+
+</RelativeLayout>

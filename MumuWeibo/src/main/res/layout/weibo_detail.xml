@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#eff2f6" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"     
+    >
+    
+    <TextView 
+        android:text="微博详情"
+        android:id="@+id/tv_detail"      
+        android:textSize="18sp"
+        android:textColor="#ff6600"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/btn_action_negative_focused"
+        android:layout_width="fill_parent"
+        android:layout_height="42dip"
+        />
+    
+    <!-- 底部按钮 -->
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="38dip"       
+        android:layout_alignParentBottom="true"  
+        android:layout_marginTop="3dip"      
+        >
+        <ImageView
+            android:id="@+id/bt_comment"
+            android:src="@drawable/btn_toolbar_comment_pressed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:layout_weight="1"
+             android:background="@drawable/image_button_style"
+            />
+        
+        <ImageView 
+            android:id="@+id/bt_retweet"
+            android:src="@drawable/btn_toolbar_retweet_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:padding="5dip"
+              android:background="@drawable/image_button_style"
+            />
+        
+        <ImageView
+            android:id="@+id/bt_favorate"
+            android:src="@drawable/unfavoriate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dip"
+            android:background="@drawable/image_button_style"
+            />
+         <ImageView
+            android:id="@+id/delete_weibo_bt"
+            android:src="@drawable/delete_weibo_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dip"
+            android:background="@drawable/image_button_style"
+            android:visibility="gone"
+            />
+    </LinearLayout>    
+   
+    <ScrollView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"   
+    android:layout_below="@id/tv_detail"
+    android:layout_above="@id/bottom_bar"
+    >    
+    
+    <LinearLayout 
+    android:id="@+id/weibo_detail_view_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:layout_marginRight="4dip"   
+     android:layout_marginLeft="1dip"      
+    >
+    <com.mumuWeibo2.SourceWeiboView
+        android:id="@+id/source_weibo_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        
+        </com.mumuWeibo2.SourceWeiboView>
+        
+        </LinearLayout>
+    </ScrollView> 
+
+
+    
+ 
+    
+</RelativeLayout>
+

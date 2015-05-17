@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#E6E8FA"
+    >
+    
+    <TextView 
+        android:text="评论列表"
+        android:id="@+id/comment_list_title"
+       	android:textColor="#ff6600"
+        android:textSize="18sp"        
+        android:gravity="center"       
+        android:background="@drawable/btn_action_negative_focused"
+        android:layout_width="fill_parent"
+        android:layout_height="42dip"
+        />
+    
+    <ListView 
+        android:id="@id/android:list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       
+       
+        android:paddingLeft="3dip"
+        android:paddingRight="3dip"
+        android:cacheColorHint="#00000000"
+        />
+    <TextView 
+        android:id="@id/android:empty"
+        android:text="暂无评论"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    
+   
+    
+    
+
+</LinearLayout>

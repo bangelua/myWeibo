@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="48dip"
+    android:gravity="center"
+    android:id="@+id/loading_more"	 
+    android:background="@drawable/btn_action_negative_focused"   
+    android:descendantFocusability="beforeDescendants"
+	>
+	<ImageButton 	      
+	    android:id="@+id/bt_loading_more"
+	    android:src="@drawable/refresh_button"
+	    android:background="@android:color/transparent"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"		   
+	    android:gravity="center"
+	    />    
+	    
+	<TextView	    
+	     android:text="点击加载更多"
+	    android:textSize="15sp"
+	    android:textColor="#9f36a0"
+	     android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"	
+	    />
+
+</LinearLayout>

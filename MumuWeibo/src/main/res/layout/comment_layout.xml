@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical">
+    
+    <TextView 
+        android:id="@+id/tv_title_text_in_comment"
+        android:text="转发微博"
+        android:textColor="#ff6600"
+        android:textSize="18sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+      
+        android:gravity="center"   
+        android:background="@drawable/btn_action_negative_focused"
+        />
+    
+    
+    
+    <EditText 
+        android:id="@+id/edit_comment_content"
+        android:gravity="top"
+        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"          
+        android:focusableInTouchMode="true"  
+        android:focusable="true" 
+        android:hint="转发微博"    
+        />
+    
+    
+    <!-- 底部bar -->
+    <RelativeLayout	android:id="@+id/comment_bar"
+        
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+        >
+        <!-- checkBox layout -->
+        <RelativeLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dip"
+            >
+            
+            <CheckBox 
+            android:id="@+id/cb_repost_and_comment_it"
+            android:text="同时评论该微博"
+            android:textColor="#000000"
+            android:paddingLeft="20dip"
+            android:button="@drawable/my_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+            <CheckBox
+                 android:id="@+id/cb_repost_and_comment_original"
+                 android:text="同时评论原微博"
+                  android:button="@drawable/my_check_box"
+                 android:textColor="#000000"
+                  android:paddingLeft="20dip"
+                 android:layout_width="wrap_content"
+            	 android:layout_height="wrap_content"
+            	 android:layout_alignLeft="@id/cb_repost_and_comment_it"
+            	 android:layout_below="@id/cb_repost_and_comment_it"
+            	 />                
+            
+         </RelativeLayout>
+        
+        
+         <!-- 发送按钮 -->
+    <Button 
+        android:id="@+id/bt_send_comment"
+        android:text="发送"
+        android:textSize="15sp"
+        android:layout_marginRight="5dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_style"       
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        />
+    
+     <ImageButton
+            android:id="@+id/iv_face_show"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:background="@drawable/face"
+        	android:layout_marginRight="5dip"
+        	android:layout_alignBottom="@id/bt_send_comment"
+        	android:layout_toLeftOf="@id/bt_send_comment"
+        	android:layout_marginBottom="2dip"
+        	/>
+        
+    </RelativeLayout>
+
+</LinearLayout>

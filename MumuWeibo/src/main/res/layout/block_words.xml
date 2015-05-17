@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+      android:orientation="vertical" >
+      <RelativeLayout 
+            android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+          >
+        <TextView 
+        android:text="添加微博屏蔽关键字"
+        android:layout_width="match_parent"
+        android:layout_height="42dip"
+        android:textSize="18sp"
+        android:textColor="#ff6600"
+        android:gravity="center"          
+        android:background="@drawable/btn_action_negative_focused"        
+        />
+        <ImageView
+            android:id="@+id/add_words"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dip"
+            android:src="@drawable/add_word"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+          
+      </RelativeLayout>
+   
+    
+    <ListView
+        android:id="@+id/block_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:dividerHeight="2dip"
+          android:divider="@drawable/separate_line"
+        android:cacheColorHint="#00000000"
+        />
+    
+
+</LinearLayout>

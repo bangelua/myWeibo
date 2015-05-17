@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    >
+  
+     <LinearLayout 
+        android:id="@+id/bars"
+        android:layout_width="fill_parent"    	
+  		android:layout_alignParentTop="true"
+    	android:gravity="center"    
+    	 android:background="@drawable/btn_action_negative_focused"
+         android:layout_height="42dip"
+        >        
+           <ImageView
+            android:id="@+id/rec_comment"
+            android:paddingBottom="2dip"
+           	android:layout_width="wrap_content"
+           	android:layout_height="wrap_content"
+           		android:layout_weight="1"
+   			 />
+           
+        <ImageView
+            android:id="@+id/atme"
+            android:layout_width="wrap_content"
+           	android:layout_height="wrap_content"
+           	android:layout_weight="1"
+   			 />        
+                   
+    </LinearLayout>
+   
+       <LinearLayout        
+        android:id="@+id/msg_body_view"
+         android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:layout_below="@id/bars"
+    	
+        />
+   
+    
+    
+    
+</RelativeLayout >
+    
+<!-- From: file:/home/luliang/AndroidStudioProjects/MumuWeibo/MumuWeibo/src/main/res/layout/msg_layout.xml -->
