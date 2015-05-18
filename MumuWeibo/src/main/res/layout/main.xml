@@ -10,7 +10,7 @@
 
     <RelativeLayout 
     android:layout_width="fill_parent"
-    android:layout_height="47dip"
+    android:layout_height="48dip"
     android:background="@drawable/btn_action_negative_focused">
    
    <ImageButton 

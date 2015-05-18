@@ -8,7 +8,7 @@
     <!-- 标题栏 -->
     <RelativeLayout 
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
          android:background="@drawable/btn_action_negative_pressed"
          >
         <Button 
@@ -21,8 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_style"
-            android:gravity="center"            
-            /> 
+            />
         
         <TextView 
         android:text="图片浏览"
