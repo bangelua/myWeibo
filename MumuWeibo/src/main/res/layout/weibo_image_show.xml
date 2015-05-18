@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:orientation="vertical" >
+    android:background="#000000">
     
     <!-- 标题栏 -->
     <RelativeLayout 
         android:layout_width="fill_parent"
+        android:id="@+id/title_layout"
         android:layout_height="48dp"
+        android:layout_alignParentTop="true"
          android:background="@drawable/btn_action_negative_pressed"
          >
         <Button 
@@ -48,8 +50,16 @@
             />
         
     </RelativeLayout>
-    
-    <ScrollView 
+    <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+        android:id="@+id/progressBar"
+        app:mlpb_progress_color="@android:color/holo_blue_dark"
+        app:mlpb_enable_circle_background="true"
+        android:layout_centerInParent="true"
+        app:mlpb_progress_stoke_width="5dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+    <ScrollView
+        android:layout_below="@id/title_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"                      
          android:fillViewport="true">
@@ -58,9 +68,9 @@
         android:id="@+id/weibo_image_show"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"   
-       	android:scaleType="fitCenter"  
+       	android:scaleType="fitCenter"
        	android:adjustViewBounds="true"
         />
   	
 	</ScrollView>
-</LinearLayout>
+</RelativeLayout>

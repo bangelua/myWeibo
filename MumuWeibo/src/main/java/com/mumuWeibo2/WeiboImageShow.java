@@ -1,7 +1,6 @@
 package com.mumuWeibo2;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -9,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 import com.mumuWeibo2.GifHelper.GifFrame;
 
 import java.io.BufferedInputStream;
@@ -34,9 +35,9 @@ public class WeiboImageShow extends Activity{
 	private Bitmap bp;
 	private Button btDownload;
 	private Button btReturn;
-	private ProgressDialog pd=null;
 	private AsyncBitmapLoader asyncBitmapLoader=new AsyncBitmapLoader();
 	private int IMAGE_RECEIVED=1000;
+	private CircleProgressBar pd;
 	
 	
 	String imageUrlOriginal=null;
@@ -44,8 +45,8 @@ public class WeiboImageShow extends Activity{
 	private Handler handler=new Handler(){
 		public void handleMessage(Message msg)
 		{
-			if(null!=pd)pd.dismiss();				
-			 
+
+//			pd.setVisibility(View.GONE);
 			if(imageUrlOriginal!=null && !imageUrlOriginal.endsWith(".gif"))
 			{
 				iv.setImageDrawable((Drawable) msg.obj);
@@ -118,13 +119,18 @@ public class WeiboImageShow extends Activity{
 	        }
 	    }
 
-	
-	
+
+	@Override
+	public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+		super.onCreate(savedInstanceState, persistentState);
+	}
+
 	public void onCreate(Bundle bb)
 	{
 		super.onCreate(bb);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.weibo_image_show);
+		pd = (CircleProgressBar)findViewById(R.id.progressBar);
 		
 		MumuWeiboUtility.isSeized=true;
 		
@@ -164,9 +170,7 @@ public class WeiboImageShow extends Activity{
 		        			}		        		
 		        }
 			
-		        pd=ProgressDialog.show(this, null, "图片加载中。。。");
-				pd.setCancelable(true);
-			
+			pd.setVisibility(View.VISIBLE);
 			new Thread(){
 				  public void run(){
 					  Drawable d=MumuWeiboUtility.getImageFromUrl(imageUrlOriginal, MumuWeiboUtility.fileCacheDir);
@@ -208,9 +212,7 @@ public class WeiboImageShow extends Activity{
 			      File imageSource=new File(filePath);	
 				  if(!imageSource.exists())
 				  {
-					  pd=ProgressDialog.show(WeiboImageShow.this, null, "图片下载中。。。");						
-					  pd.setCancelable(true);
-					  
+//					  pd.setVisibility(View.GONE);
 					  //asyncBitmapLoader.loadBitmap(iv, imageUrlOriginal,pd);
 					  //图片下载
 					  new Thread(){
