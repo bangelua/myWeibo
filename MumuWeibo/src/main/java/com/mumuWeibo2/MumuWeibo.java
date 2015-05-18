@@ -77,7 +77,7 @@ public class MumuWeibo extends Activity implements OnScrollListener {
 	View midView;
 			
 	SsoHandler mSsoHandler;
-	
+
 	private Handler handler=new Handler();
 	
 	public void showToast(final String s)
@@ -116,7 +116,6 @@ public class MumuWeibo extends Activity implements OnScrollListener {
        lv.setOnItemLongClickListener(lislong);
        //loadMore=getLayoutInflater().inflate(R.layout.load_more, null);
        title=(TextView)findViewById(R.id.tv_title_in_mainpage);
-        
        MyListView.IOnRefreshListener refreshLis=new MyListView.IOnRefreshListener() {
    		
    		@Override
@@ -180,7 +179,7 @@ public class MumuWeibo extends Activity implements OnScrollListener {
 			maxId=MumuWeiboUtility.WeiboInfoList.get(length-1).getWeiboId();
 						
 		long max=Long.parseLong(maxId)-1;
-		
+
 		StatusesAPI api=new StatusesAPI(AccessTokenKeeper.readAccessToken(MumuWeibo.this));
 		api.friendsTimeline(0l, max, 30, 1, false, WeiboAPI.FEATURE.ALL, false, new GetMoreWeiboListener());
 	
@@ -440,9 +439,7 @@ public void setUserInfo(){
 	if(MumuWeiboUtility.LoginUser!=null)
 	{
 		WeiboUserInfo user=MumuWeiboUtility.LoginUser;		
-		title.setText(user.getName()); 
-		AsyncBitmapLoader async=new AsyncBitmapLoader();
-//		async.loadBitmap(logo, MumuWeiboUtility.IMAGE_TYPE.PROFILE,user.getProfile());
+		title.setText(user.getName());
 
 		logo.setImageURI(Uri.parse(user.getProfile()));
 		return;
@@ -535,15 +532,9 @@ public void setUserInfo(){
 		super.onResume();
 		Log.i(TAG,"OnResume");
 		if(AccessTokenKeeper.readAccessToken(MumuWeiboUtility.context).isSessionValid())
-		{
-			if(MumuWeiboUtility.isSeized)
-				{					
-					MumuWeiboUtility.isSeized=false;
-				}
-			else if(MumuWeiboUtility.isFlushingWeibo==false)
-				flushWeibo();
-				
-		}
+			if (MumuWeiboUtility.isSeized) {
+				MumuWeiboUtility.isSeized = false;
+			} else if (!MumuWeiboUtility.isFlushingWeibo) flushWeibo();
 		
 		setUserInfo();
 	}
