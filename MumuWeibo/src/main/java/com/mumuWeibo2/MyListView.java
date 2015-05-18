@@ -1,10 +1,7 @@
 package com.mumuWeibo2;
 
-import java.util.Date;
-
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.Date;
 
 
 public class MyListView extends ListView implements OnScrollListener, OnClickListener{

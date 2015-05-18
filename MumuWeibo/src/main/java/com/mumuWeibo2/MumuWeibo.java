@@ -198,8 +198,14 @@ public class MumuWeibo extends Activity implements OnScrollListener {
 				
 				 if(count==0)
 					 {
-					 	showToast("没有更多微博了。");   
-					 	lv.onLoadMoreComplete(true);
+					 	showToast("没有更多微博了。");
+						 handler.post(new Runnable() {
+							 @Override
+							 public void run() {
+								 lv.onLoadMoreComplete(true);
+							 }
+						 });
+
 					 	
 					 }
            		 else{	           
