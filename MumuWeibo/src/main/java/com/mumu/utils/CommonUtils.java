@@ -3,8 +3,9 @@ package com.mumu.utils;
 import android.net.Uri;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
@@ -14,10 +15,23 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 public class CommonUtils {
 
     public static void draweeSupportGif(SimpleDraweeView drawee, String url) {
+        int width = 150, height = 150;
         Uri uri = Uri.parse(url);
-        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri).build();
+        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
+                .setResizeOptions(new ResizeOptions(width, height))
+                .build();
 
-        DraweeController controller = Fresco.newDraweeControllerBuilder().setImageRequest(request).setAutoPlayAnimations(true).build();
-        drawee.setController(controller);
+//        DraweeController controller = Fresco.newDraweeControllerBuilder()
+//                .setImageRequest(request)
+//                .setAutoPlayAnimations(true)
+//                .build();
+//        drawee.setController(controller);
+
+        PipelineDraweeController controller2 = (PipelineDraweeController) Fresco.newDraweeControllerBuilder()
+                .setOldController(drawee.getController())
+                .setAutoPlayAnimations(true)
+                .setImageRequest(request)
+                .build();
+        drawee.setController(controller2);
     }
 }
