@@ -174,6 +174,11 @@ public class WeiboImageShow extends Activity{
 			new Thread(){
 				  public void run(){
 					  Drawable d=MumuWeiboUtility.getImageFromUrl(imageUrlOriginal, MumuWeiboUtility.fileCacheDir);
+					  try {
+						  Thread.sleep(500);
+					  } catch (InterruptedException e) {
+						  e.printStackTrace();
+					  }
 					  Message msg=handler.obtainMessage(0,d);
 					  handler.sendMessage(msg);
 				  }
