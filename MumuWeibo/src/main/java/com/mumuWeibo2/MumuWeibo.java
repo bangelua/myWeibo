@@ -154,7 +154,7 @@ public class MumuWeibo extends Activity implements OnScrollListener {
             if (v == sendWeibo) {
 
 				/*
-				Intent intent=new Intent();
+                Intent intent=new Intent();
 				intent.putExtra("com.weibo.android.accesstoken", weibo.getAccessToken().getToken());
 				intent.putExtra("com.weibo.android.token.secret", weibo.getAccessToken().getSecret());
 				intent.setClass(MumuWeibo.this,com.weibo.net.ShareActivity.class);

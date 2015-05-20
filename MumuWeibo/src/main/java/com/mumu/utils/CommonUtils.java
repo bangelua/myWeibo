@@ -37,8 +37,8 @@ public class CommonUtils {
         drawee.setController(controller2);
     }
 
-    public static int dp2px(Context context, int dp){
+    public static int dp2px(Context context, int dp) {
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
-        return (int)dm.density * dp;
+        return (int) dm.density * dp;
     }
 }
