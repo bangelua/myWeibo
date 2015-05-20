@@ -2,8 +2,6 @@ package com.mumuWeibo2;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-
 //单条评论微博的解析
 public class OneCommentParser {
 	
@@ -59,7 +57,7 @@ public class OneCommentParser {
 				myname=user1.getName();
 			}
 			//额外评论信息
-			String comment="\n|---回复评论---->@"+myname+": "+myComment;
+			String comment="\n|--Reply-->@"+myname+": "+myComment;
 			String temp=weiboInfo.getWeiboText();
 			weiboInfo.setWeiboText(temp+comment);
 		}

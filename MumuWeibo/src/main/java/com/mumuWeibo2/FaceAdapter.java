@@ -21,10 +21,12 @@ public class FaceAdapter extends BaseAdapter{
 			,"[好激动]","[吐血]","[lt切克闹]","[非常汗]","[巨汗]","[右边亮了]","[好喜欢]","[被电]",
 			"[moc顶]","[moc亲亲女]","[moc亲亲男]","[moc拍照]","[moc浮云]",};
 	private AsyncBitmapLoader async=new AsyncBitmapLoader();
-	Context context;	
+	Context context;
+	private int mScale;
 	
-	public FaceAdapter(Context ctx){
+	public FaceAdapter(Context ctx, int scale){
 		context=ctx;
+		mScale = scale;
 	}
 	@Override
 	public int getCount() {
@@ -51,7 +53,7 @@ public class FaceAdapter extends BaseAdapter{
          if (convertView==null)  
          {  
         	 ivImageView=new ImageView(context);
-        	 ivImageView.setLayoutParams(new GridView.LayoutParams(50,50));
+        	 ivImageView.setLayoutParams(new GridView.LayoutParams(mScale,mScale));
         	 ivImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         	 ivImageView.setPadding(2, 2, 2, 2);        	         	 
          } 

@@ -21,9 +21,11 @@ public FaceDialog(Context ctx,EditText et0){
 	  final Dialog dialog = new Dialog(context,R.style.dialog);
 	  dialog.setContentView(R.layout.face_list_layout);
 	  dialog.setCancelable(true);
-	  
+	  int scale = et0.getLineHeight();
 	  GridView gv=(GridView)dialog.findViewById(R.id.gd_face);
-	  final FaceAdapter adapter=new FaceAdapter(context);
+
+
+	  final FaceAdapter adapter=new FaceAdapter(context, scale);
 	  gv.setAdapter(adapter);
 	  gv.setOnItemClickListener(new OnItemClickListener(){
 

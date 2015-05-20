@@ -1,6 +1,8 @@
 package com.mumu.utils;
 
+import android.content.Context;
 import android.net.Uri;
+import android.util.DisplayMetrics;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
@@ -33,5 +35,10 @@ public class CommonUtils {
                 .setImageRequest(request)
                 .build();
         drawee.setController(controller2);
+    }
+
+    public static int dp2px(Context context, int dp){
+        DisplayMetrics dm = context.getResources().getDisplayMetrics();
+        return (int)dm.density * dp;
     }
 }
