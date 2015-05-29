@@ -137,7 +137,8 @@ public class MumuWeibo extends Activity implements OnScrollListener {
 
         //setUserInfo();
 
-        WeiboListAdapter adapter = new WeiboListAdapter(MumuWeibo.this, MumuWeiboUtility.WeiboInfoList);
+        WeiboListAdapter adapter = new WeiboListAdapter(MumuWeibo.this, MumuWeiboUtility
+                .WeiboInfoList);
         lv.setAdapter(adapter);
 
         if (AccessTokenKeeper.readAccessToken(MumuWeiboUtility.context).isSessionValid())
@@ -155,8 +156,10 @@ public class MumuWeibo extends Activity implements OnScrollListener {
 
 				/*
                 Intent intent=new Intent();
-				intent.putExtra("com.weibo.android.accesstoken", weibo.getAccessToken().getToken());
-				intent.putExtra("com.weibo.android.token.secret", weibo.getAccessToken().getSecret());
+				intent.putExtra("com.weibo.android.accesstoken", weibo.getAccessToken().getToken
+				());
+				intent.putExtra("com.weibo.android.token.secret", weibo.getAccessToken().getSecret
+				());
 				intent.setClass(MumuWeibo.this,com.weibo.net.ShareActivity.class);
 				*/
                 Intent intent = new Intent();
@@ -180,7 +183,8 @@ public class MumuWeibo extends Activity implements OnScrollListener {
         long max = Long.parseLong(maxId) - 1;
 
         StatusesAPI api = new StatusesAPI(AccessTokenKeeper.readAccessToken(MumuWeibo.this));
-        api.friendsTimeline(0l, max, 30, 1, false, WeiboAPI.FEATURE.ALL, false, new GetMoreWeiboListener());
+        api.friendsTimeline(0l, max, 30, 1, false, WeiboAPI.FEATURE.ALL, false, new
+                GetMoreWeiboListener());
 
     }
 
@@ -212,12 +216,14 @@ public class MumuWeibo extends Activity implements OnScrollListener {
 
                         @Override
                         public void run() {
-                            WeiboListAdapter adapter = new WeiboListAdapter(MumuWeibo.this, MumuWeiboUtility.WeiboInfoList);
+                            WeiboListAdapter adapter = new WeiboListAdapter(MumuWeibo.this,
+                                    MumuWeiboUtility.WeiboInfoList);
                             // lv.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
                             lv.onLoadMoreComplete(false);
                             // lv.setSelection(lastVisibleItem+1);
-                            MumuWeiboUtility.saveWeiboList(MumuWeibo.this, MumuWeiboUtility.LIST_FLAG.PUBLIC);
+                            MumuWeiboUtility.saveWeiboList(MumuWeibo.this, MumuWeiboUtility
+                                    .LIST_FLAG.PUBLIC);
                         }
                     });
 
@@ -313,7 +319,7 @@ public class MumuWeibo extends Activity implements OnScrollListener {
         flushWeibo.setAnimation(anim);
         anim.startNow();
 
-        int num = 50;//一次刷新的围脖数量
+        int num = 20;//一次刷新的围脖数量
         long since = 0l;
         if (MumuWeiboUtility.WeiboInfoList.size() > 1) {
             num += 1;
@@ -323,7 +329,8 @@ public class MumuWeibo extends Activity implements OnScrollListener {
         StatusesAPI api = new StatusesAPI(AccessTokenKeeper.readAccessToken(MumuWeibo.this));
 
 
-        api.friendsTimeline(since, 0l, num, 1, false, WeiboAPI.FEATURE.ALL, false, new GetNewWeiboListener());
+        api.friendsTimeline(since, 0l, num, 1, false, WeiboAPI.FEATURE.ALL, false, new
+                GetNewWeiboListener());
 
     }
 
@@ -334,7 +341,8 @@ public class MumuWeibo extends Activity implements OnScrollListener {
             // TODO Auto-generated method stub
             int presize = MumuWeiboUtility.WeiboInfoList.size();
             try {
-                final int count = WeiboListParser.parse(newWeibo, MumuWeiboUtility.WeiboInfoList, 0);
+                final int count = WeiboListParser.parse(newWeibo, MumuWeiboUtility.WeiboInfoList,
+                        0);
                 if (progressDialog != null) progressDialog.dismiss();
                 if (anim != null) anim.cancel();
 
@@ -348,14 +356,16 @@ public class MumuWeibo extends Activity implements OnScrollListener {
 
                     @Override
                     public void run() {
-                        WeiboListAdapter adapter = new WeiboListAdapter(MumuWeibo.this, MumuWeiboUtility.WeiboInfoList);
+                        WeiboListAdapter adapter = new WeiboListAdapter(MumuWeibo.this,
+                                MumuWeiboUtility.WeiboInfoList);
                         lv.setAdapter(adapter);
 
                         // lv.addView(midView, MumuWeiboUtility.WeiboInfoList.size()+count);
                         // lv.addView(midView, 400, 30);
                         lv.onRefreshComplete();
                         MumuWeiboUtility.isFlushingWeibo = false;
-                        MumuWeiboUtility.saveWeiboList(MumuWeibo.this, MumuWeiboUtility.LIST_FLAG.PUBLIC);
+                        MumuWeiboUtility.saveWeiboList(MumuWeibo.this, MumuWeiboUtility.LIST_FLAG
+                                .PUBLIC);
                     }
                 });
             } catch (JSONException e) {
@@ -459,7 +469,8 @@ public class MumuWeibo extends Activity implements OnScrollListener {
                 e.printStackTrace();
             }
 
-            UsersAPI userAPI = new UsersAPI(AccessTokenKeeper.readAccessToken(MumuWeiboUtility.context));
+            UsersAPI userAPI = new UsersAPI(AccessTokenKeeper.readAccessToken(MumuWeiboUtility
+                    .context));
             userAPI.show(uids, new GetLoginerInfoListener());
         }
 
@@ -491,7 +502,8 @@ public class MumuWeibo extends Activity implements OnScrollListener {
 
                         if (user != null) {
                             AsyncBitmapLoader async = new AsyncBitmapLoader();
-                            async.loadBitmap(logo, MumuWeiboUtility.IMAGE_TYPE.PROFILE, user.getProfile());
+                            async.loadBitmap(logo, MumuWeiboUtility.IMAGE_TYPE.PROFILE, user
+                                    .getProfile());
                             title.setText(user.getName());
                         }
 

@@ -76,48 +76,9 @@ public class AppMain extends ActivityGroup {
     private final int CHANGE_USER = Menu.FIRST + 3;
 
     public void onCreate(Bundle bb) {
-        /*
-		if (true) {
-    		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
-    		.detectDiskReads()
-    		.detectDiskWrites()
-    		.detectNetwork() // 这里可以替换为detectAll() 就包括了磁盘读写和网络I/O
-    		.penaltyLog() //打印logcat，当然也可以定位到dropbox，通过文件保存相应的log
-    		.build());
-    		StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
-    		.detectLeakedSqlLiteObjects() //探测SQLite数据库操作
-    		.penaltyLog() //打印logcat
-    		.penaltyDeath()
-    		.build());
-    		}
-    		*/
-
         super.onCreate(bb);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main_tab);
-
-        //CHECK emotion
-		/*
-		Log.i("---------","checking emotion...");
-		final File cacheDir=new File(MumuWeiboUtility.emotionSaveDir);
-		if(!cacheDir.exists())
-			cacheDir.mkdirs();
-		new Thread(){
-		public void run(){			
-			File[] files=cacheDir.listFiles();
-			for(int i=0;i<files.length;i++){
-				File f=files[i];
-				if(f.isDirectory())continue;
-				Drawable bp=Drawable.createFromPath(f.getAbsolutePath());
-				if(bp==null)
-					f.delete();
-				
-			}
-			Log.i("---------","clear bad emotion is over!");
-		}
-		}.start();
-		
-		*/
 
         Resources res = this.getResources();
         InputStream is = res.openRawResource(R.raw.emotion);
@@ -141,16 +102,6 @@ public class AppMain extends ActivityGroup {
 
 
         MumuWeiboUtility.context = getApplicationContext();
-        //先查看sdcard是否挂载
-		/*
-	      if(false && !Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) 
-	      {
-	    	  String innerCachePath = getCacheDir().getAbsolutePath()+File.separator;
-	  		//MumuWeiboUtility.imageSaveDir=innerCachePath+"myMumuPic";
-	  		MumuWeiboUtility.imageSaveDir=innerCachePath;
-	  		MumuWeiboUtility.emotionSaveDir=innerCachePath;
-	      }
-	      */
 
         //初始化设置信息
         SharedPreferences settings = getSharedPreferences(MumuWeiboUtility.SETTING_INFO, 0);
@@ -158,13 +109,13 @@ public class AppMain extends ActivityGroup {
 
         //从本地导入保存的公共微博列表
         MumuWeiboUtility.ImportWeibosList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-				.PUBLIC);
+                .PUBLIC);
         MumuWeiboUtility.ImportWeibosList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-				.COMMENTS);
+                .COMMENTS);
         MumuWeiboUtility.ImportWeibosList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-				.ATMSG);
+                .ATMSG);
         MumuWeiboUtility.ImportWeibosList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-				.MYWEIBOS);
+                .MYWEIBOS);
 
         MumuWeiboUtility.ImportBlockWords();
 
@@ -219,10 +170,10 @@ public class AppMain extends ActivityGroup {
 
         MumuWeiboUtility.saveWeiboList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG.PUBLIC);
         MumuWeiboUtility.saveWeiboList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-				.COMMENTS);
+                .COMMENTS);
         MumuWeiboUtility.saveWeiboList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG.ATMSG);
         MumuWeiboUtility.saveWeiboList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-				.MYWEIBOS);
+                .MYWEIBOS);
         MumuWeiboUtility.saveUserInfo(getApplicationContext());
 
         //MumuWeiboUtility.WeiboInfoList.removeAll(MumuWeiboUtility.WeiboInfoList.subList(5,
@@ -241,7 +192,7 @@ public class AppMain extends ActivityGroup {
         while (i > MAX_COMMENTS_WEIBO_RECORD)
             MumuWeiboUtility.CommentsList.remove(--i);
         MumuWeiboUtility.saveWeiboList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-				.COMMENTS);
+                .COMMENTS);
 
         int MAX_ATMSG_WEIBO_RECORD = 100;//保留@的最大记录数为MAX_RECORD;
         i = MumuWeiboUtility.AtMsgList.size();
@@ -254,7 +205,7 @@ public class AppMain extends ActivityGroup {
         while (i > MAX_MY_WEIBOS_RECORD)
             MumuWeiboUtility.MyWeibosList.remove(--i);
         MumuWeiboUtility.saveWeiboList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-				.MYWEIBOS);
+                .MYWEIBOS);
 
 
         Log.i("----------------------", "on destroy");
@@ -267,13 +218,10 @@ public class AppMain extends ActivityGroup {
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            //if(v==mainPage)
             if (v.getId() == R.id.iv_mainpage)
                 showView(1);
-                //	else if(v==userInfo)
             else if (v.getId() == R.id.iv_userinfo)
                 showView(2);
-                //else if(v==message)
             else if (v.getId() == R.id.iv_message)
                 showView(3);
 
@@ -315,8 +263,6 @@ public class AppMain extends ActivityGroup {
         } else if (i == 3) {
 
             bodyView.removeAllViews();
-            // this.msgIntent.putExtra("action", "@me");
-            // this.msgIntent.putExtra("action", "comment");
             View v = getLocalActivityManager().startActivity(msgId,
                     this.msgIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
@@ -330,38 +276,10 @@ public class AppMain extends ActivityGroup {
         }
     }
 
-    /*
-    //当按下返回键时，是否要真的退出应用？
-        public void onBackPressed() {
-            //code......
-            AlertDialog.Builder sureFinish=new AlertDialog.Builder(AppMain.this);
-            sureFinish.setMessage("确定要退出沐牧微博客户端？");
-            sureFinish.setPositiveButton("退出", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    // TODO Auto-generated method stub
-                    //退出清除缓存
-                    MumuWeiboUtility.WeiboInfoList.clear();
-                    MumuWeiboUtility.userInfoCache.clear();
-
-                    finish();
-                }
-            });
-            sureFinish.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    // TODO Auto-generated method stub
-                }
-            });
-            sureFinish.create().show();
-        }
-        */
     public boolean dispatchKeyEvent(KeyEvent event) {
 
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent
-				.ACTION_DOWN) {
+                .ACTION_DOWN) {
             AlertDialog.Builder sureFinish = new AlertDialog.Builder(AppMain.this);
             sureFinish.setMessage("确定要退出沐牧微博客户端？");
             sureFinish.setPositiveButton("退出", new DialogInterface.OnClickListener() {
@@ -541,22 +459,22 @@ public class AppMain extends ActivityGroup {
             MumuWeiboUtility.WeiboInfoList.clear();
             MumuWeiboUtility.WeiboInfoList = new ArrayList<WeiboInfo>();
             MumuWeiboUtility.saveWeiboList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-					.PUBLIC);
+                    .PUBLIC);
 
             MumuWeiboUtility.CommentsList.clear();
             MumuWeiboUtility.CommentsList = new ArrayList<WeiboInfo>();
             MumuWeiboUtility.saveWeiboList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-					.COMMENTS);
+                    .COMMENTS);
 
             MumuWeiboUtility.AtMsgList.clear();
             MumuWeiboUtility.AtMsgList = new ArrayList<WeiboInfo>();
             MumuWeiboUtility.saveWeiboList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-					.ATMSG);
+                    .ATMSG);
 
             MumuWeiboUtility.MyWeibosList.clear();
             MumuWeiboUtility.MyWeibosList = new ArrayList<WeiboInfo>();
             MumuWeiboUtility.saveWeiboList(getApplicationContext(), MumuWeiboUtility.LIST_FLAG
-					.MYWEIBOS);
+                    .MYWEIBOS);
 
             MumuWeiboUtility.userInfoCache.clear();
             MumuWeiboUtility.LoginUser = null;
@@ -679,7 +597,7 @@ public class AppMain extends ActivityGroup {
             public void run() {
                 for (int i = 0; i < FaceAdapter.faceArray.length; i++) {
                     final String imageURL = MumuWeiboUtility.emotionMapList.get(FaceAdapter
-							.faceArray[i]);
+                            .faceArray[i]);
                     if (imageURL == null) continue;
                     MumuWeiboUtility.getImageFromUrl(imageURL, MumuWeiboUtility.emotionSaveDir);
                 }
@@ -787,26 +705,6 @@ public class AppMain extends ActivityGroup {
 
     }
 
-    public void LoginOut() {
-        //Oauth2AccessToken token=AccessTokenKeeper.readAccessToken(AppMain.this);
-        //AccountAPI api001=new AccountAPI(token);
-        //api001.endSession(new LoginOutListener());
-        //WeiboParameters params = new WeiboParameters();
-
-        //params.add("access_token",token.getToken());
-        //String API_SERVER = "https://api.weibo.com/2";
-        //String SERVER_URL_PRIX = API_SERVER + "/account";
-
-        //AsyncWeiboRunner.request( SERVER_URL_PRIX + "/end_session.json", params, "GET",new LoginOutListener());
-		/*
-				WeiboParameters params = new WeiboParameters();
-				params.add("access_token", MumuWeibo.token.getToken());
-				AsyncWeiboRunner.request( AccountAPI.API_SERVER + "/account/end_session.json", params, WeiboAPI.HTTPMETHOD_GET,new LoginOutListener());
-				
-				*/
-        //api001.endSession(new LoginOutListener());
-
-    }
 
     class LoginOutListener implements RequestListener {
 
@@ -827,7 +725,8 @@ public class AppMain extends ActivityGroup {
             // TODO Auto-generated method stub
             handler.post(new Runnable() {
                 public void run() {
-                    Toast.makeText(AppMain.this, "LOGIN OUT FAILED!!" + WeiboErrorHelper.WeiboError(arg0), Toast.LENGTH_LONG).show();
+                    Toast.makeText(AppMain.this, "LOGIN OUT FAILED!!" + WeiboErrorHelper
+                            .WeiboError(arg0), Toast.LENGTH_LONG).show();
 
                 }
             });

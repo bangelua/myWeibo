@@ -1,13 +1,10 @@
 package com.mumuWeibo2;
 
-import java.io.IOException;
-
-import org.json.JSONException;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -16,25 +13,29 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.weibo.sdk.android.WeiboException;
 import com.weibo.sdk.android.api.FriendshipsAPI;
 import com.weibo.sdk.android.api.UsersAPI;
 import com.weibo.sdk.android.net.RequestListener;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 //显示用户信息
 public class UserInfoShow extends Activity {
 
-    private final String TAG = "TAG----------->UserInfoShow.class";
+    private final String TAG = "UserInfoShow";
 
     AsyncBitmapLoader async = new AsyncBitmapLoader();
     TextView userNameTitle;
-    ImageView userProfile;
+    SimpleDraweeView userProfile;
     TextView userName;
     TextView loc;
     TextView des;
@@ -79,7 +80,7 @@ public class UserInfoShow extends Activity {
 
         //get view
         userNameTitle = (TextView) findViewById(R.id.tv_user_name_in_title);
-        userProfile = (ImageView) findViewById(R.id.user_profile_info);
+        userProfile = (SimpleDraweeView) findViewById(R.id.user_profile_info);
         userName = (TextView) findViewById(R.id.user_name_info);
         loc = (TextView) findViewById(R.id.user_gender_location_info);
         des = (TextView) findViewById(R.id.tv_description);
@@ -140,7 +141,8 @@ public class UserInfoShow extends Activity {
         //if(username=当前登录用户名)转移到个人用户信息activity
         //set
         //userNameTitle.setText(username);
-        async.loadBitmap(userProfile, MumuWeiboUtility.IMAGE_TYPE.PROFILE, user.getProfile());
+        userProfile.setImageURI(Uri.parse(user.getProfile()));
+//        async.loadBitmap(userProfile, MumuWeiboUtility.IMAGE_TYPE.PROFILE, user.getProfile());
         userName.setText(s);
         String gender = "保密";
         if (user.getGender().equals("f"))
