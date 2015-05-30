@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#eff2f6"
-    android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#eff2f6"
+                android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_detail"
@@ -15,52 +15,49 @@
         android:gravity="center"
         android:text="微博详情"
         android:textColor="#ff6600"
-        android:textSize="18sp" />
+        android:textSize="18sp"/>
 
     <!-- 底部按钮 -->
     <LinearLayout
         android:id="@+id/bottom_bar"
         android:layout_width="fill_parent"
-        android:layout_height="38dip"
+        android:layout_height="40dip"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="3dip">
 
         <ImageView
             android:id="@+id/bt_comment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/image_button_style"
-            android:padding="5dip"
-            android:src="@drawable/btn_toolbar_comment_pressed" />
+            android:src="@drawable/btn_toolbar_comment_pressed"/>
 
         <ImageView
             android:id="@+id/bt_retweet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/image_button_style"
-            android:padding="5dip"
-            android:src="@drawable/btn_toolbar_retweet_normal" />
+            android:src="@drawable/btn_toolbar_retweet_normal"/>
 
         <ImageView
             android:id="@+id/bt_favorate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/image_button_style"
-            android:padding="5dip"
-            android:src="@drawable/unfavoriate" />
+            android:src="@drawable/unfavoriate"/>
 
         <ImageView
             android:id="@+id/delete_weibo_bt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/image_button_style"
             android:padding="5dip"
             android:src="@drawable/delete_weibo_bt"
-            android:visibility="gone" />
+            android:visibility="gone"/>
     </LinearLayout>
 
     <ScrollView

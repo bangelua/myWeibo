@@ -259,9 +259,6 @@ public class UserWeibosShow extends Activity {
     }
 
     private void getMoreWeibos() {
-        //pd=ProgressDialog.show(UserWeibosShow.this, null, "正在获取用户更多微博。。。");
-        //loadMoreButton.setAnimation(anim);
-        //anim.startNow();
         prePos = list.size();
         final long maxId = list.get(prePos - 1).getId();
         api.userTimeline(uid, 0, maxId - 1, 20, 1, false, FEATURE.ALL, false, new
@@ -415,9 +412,6 @@ public class UserWeibosShow extends Activity {
     }
 
     private void getMoreFavors() {
-        //pd=ProgressDialog.show(UserWeibosShow.this, null, "正在获取用户更多微博。。。");
-
-
         prePos = list.size();
         final String maxId = list.get(prePos - 1).getWeiboId();
 

@@ -233,20 +233,8 @@ public class UserInfoShow extends Activity {
                 .this));
 
         if (user.isFollowing()) {
-            //取消关注...
-            //pd=ProgressDialog.show(UserInfoShow.this, null, "正在取消关注...");
-            //pd.setCancelable(true);
-            Toast.makeText(getApplicationContext(), "正在取消关注", Toast.LENGTH_LONG).show();
-
-
             api.destroy(user.getName(), new CancelFocusListener());
-
         } else {
-            //关注
-            //pd=ProgressDialog.show(UserInfoShow.this, null, "正在请求关注...");
-            //pd.setCancelable(true);
-            Toast.makeText(getApplicationContext(), "正在请求关注", Toast.LENGTH_LONG).show();
-
             api.create(user.getName(), new FocusListener());
         }
     }

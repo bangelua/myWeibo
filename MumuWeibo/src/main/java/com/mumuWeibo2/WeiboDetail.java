@@ -102,7 +102,8 @@ public class WeiboDetail extends Activity {
         delete = (ImageView) findViewById(R.id.delete_weibo_bt);
         delete.setOnClickListener(lis);
 
-        if (MumuWeiboUtility.LoginUser != null && weiboInfo.getWeiboUser().getName().equals(MumuWeiboUtility.LoginUser.getName()))
+        if (MumuWeiboUtility.LoginUser != null && weiboInfo.getWeiboUser().getName().equals
+                (MumuWeiboUtility.LoginUser.getName()))
             delete.setVisibility(View.VISIBLE);
 
         listComment = new Button(this);
@@ -134,7 +135,6 @@ public class WeiboDetail extends Activity {
             favorate.setImageResource(R.drawable.favoriated);
         else
             favorate.setImageResource(R.drawable.unfavoriate);
-
 
         msgList = new ArrayList<MsgItem>();
         if (weiboInfo.getRetweetWeiboInfo() != null) {
@@ -303,13 +303,8 @@ public class WeiboDetail extends Activity {
         FavoritesAPI api = new FavoritesAPI(AccessTokenKeeper.readAccessToken(WeiboDetail.this));
 
         if (isFavor1 == false) {
-            //收藏
-            //pd=ProgressDialog.show(WeiboDetail.this, null, "正在收藏...");
-            Toast.makeText(getApplicationContext(), "正在收藏...", Toast.LENGTH_SHORT).show();
             api.create(Long.parseLong(mid1), new FavoriateSuccessListener());
         } else {
-            //取消收藏
-            Toast.makeText(getApplicationContext(), "正在取消收藏...", Toast.LENGTH_SHORT).show();
             api.destroy(Long.parseLong(mid1), new FavoriateCancelListener());
         }
     }
