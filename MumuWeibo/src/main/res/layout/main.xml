@@ -55,7 +55,7 @@
         android:text="沐牧微博"
         android:id="@+id/tv_title_in_mainpage"       
        	android:layout_centerInParent="true"
-       	android:textColor="#ff6600"
+       	android:textColor="@color/title_red_color"
        	android:textSize="18sp"
        	android:layout_width="wrap_content"
        	android:layout_height="wrap_content"       	

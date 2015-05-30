@@ -28,7 +28,8 @@
 
         </activity>
         <activity android:name="com.weibo.net.ShareActivity"></activity>
-        <activity android:name="com.mumuWeibo2.WeiboImageShow"></activity>
+        <activity android:name="com.mumuWeibo2.WeiboImageShow"
+            android:hardwareAccelerated="false"></activity>
         <activity android:name="com.mumuWeibo2.UserInfoShow"></activity>
         <activity android:name="com.mumuWeibo2.WeiboDetail"></activity>
         <activity

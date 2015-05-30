@@ -1,76 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000000">
-    
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#000000">
+
     <!-- 标题栏 -->
-    <RelativeLayout 
-        android:layout_width="fill_parent"
+    <RelativeLayout
         android:id="@+id/title_layout"
-        android:layout_height="48dp"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/title_height"
         android:layout_alignParentTop="true"
-         android:background="@drawable/btn_action_negative_pressed"
-         >
-        <Button 
+        android:background="@drawable/btn_action_negative_focused"
+        >
+
+        <Button
             android:id="@+id/bt_return_in_imageshow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
-             android:text="返回"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-           	android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:background="@drawable/button_style"
-            />
-        
-        <TextView 
-        android:text="图片浏览"
-        android:layout_centerInParent="true"
-         android:textColor="#003399"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"       
-        />
-        
-        <Button 
-            android:id="@+id/bt_download_image"
-            android:text="保存"
-            android:textSize="14sp"
+            android:text="返回"
             android:textColor="@android:color/black"
-           	android:layout_centerVertical="true"           
+            android:textSize="18sp"
+            />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="图片浏览"
+            android:textColor="@color/title_red_color"
+            android:textSize="16sp"
+            />
+
+        <Button
+            android:id="@+id/bt_download_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:background="@drawable/button_style"
             android:gravity="center"
             android:paddingLeft="3dip"
             android:paddingRight="3dip"
-            android:layout_alignParentRight="true"            
+            android:text="保存"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
             />
-        
+
     </RelativeLayout>
+
     <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
         android:id="@+id/progressBar"
-        app:mlpb_progress_color="@android:color/holo_blue_dark"
-        app:mlpb_enable_circle_background="true"
-        android:layout_centerInParent="true"
-        app:mlpb_progress_stoke_width="5dp"
         android:layout_width="60dp"
-        android:layout_height="60dp"/>
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        app:mlpb_enable_circle_background="true"
+        app:mlpb_progress_color="@android:color/holo_blue_dark"
+        app:mlpb_progress_stoke_width="5dp"/>
+
     <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_below="@id/title_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"                      
-         android:fillViewport="true">
-    
-    <ImageView 
-        android:id="@+id/weibo_image_show"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"   
-       	android:scaleType="fitCenter"
-       	android:adjustViewBounds="true"
-        />
-  	
-	</ScrollView>
+        android:fillViewport="true">
+
+        <ImageView
+            android:id="@+id/weibo_image_show"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            />
+
+    </ScrollView>
 </RelativeLayout>
