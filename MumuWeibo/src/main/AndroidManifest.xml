@@ -44,7 +44,7 @@
         </activity>
 
 
-        <activity android:name="com.com.mumu.weibo.ui.MainActivity">
+        <activity android:name="com.mumuWeibo2.AppMain">
 
         </activity>
         <activity android:name="com.mumuWeibo2.MsgHolder"></activity>

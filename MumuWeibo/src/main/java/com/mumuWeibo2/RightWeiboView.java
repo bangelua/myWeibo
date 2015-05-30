@@ -1,11 +1,13 @@
 package com.mumuWeibo2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +44,7 @@ public class RightWeiboView extends RelativeLayout {
         });
     }
 
+    private AsyncBitmapLoader async = new AsyncBitmapLoader();
 
     public RightWeiboView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -59,6 +62,8 @@ public class RightWeiboView extends RelativeLayout {
         msg = (TextView) findViewById(R.id.tv_weiboText_in_right_view);
         profile = (SimpleDraweeView) findViewById(R.id.iv_user_profile_in_right);
         username = (TextView) findViewById(R.id.tv_user_name_in_right);
+        profile.setOnClickListener(lis);
+        username.setOnClickListener(lis);
     }
 
     public void setView(final MsgItem item) {
@@ -124,6 +129,15 @@ public class RightWeiboView extends RelativeLayout {
         }
 
     }
+
+    private OnClickListener lis = new OnClickListener() {
+        public void onClick(View v) {
+            Intent in = new Intent();
+            in.setClass(getContext(), UserInfoShow.class);
+            in.putExtra("screen_name", username.getText().toString());
+            getContext().startActivity(in);
+        }
+    };
 
 
 }

@@ -1,6 +1,7 @@
 package com.mumuWeibo2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.text.method.LinkMovementMethod;
@@ -129,10 +130,10 @@ public class LeftWeiboView extends RelativeLayout {
 
     private OnClickListener lis = new OnClickListener() {
         public void onClick(View v) {
-//            Intent in = new Intent();
-//            in.setClass(getContext(), UserInfoShow.class);
-//            in.putExtra("screen_name", username.getText().toString());
-//            getContext().startActivity(in);
+            Intent in = new Intent();
+            in.setClass(getContext(), UserInfoShow.class);
+            in.putExtra("screen_name", username.getText().toString());
+            getContext().startActivity(in);
         }
     };
 }

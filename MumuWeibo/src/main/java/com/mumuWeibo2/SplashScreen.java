@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 
-import com.com.mumu.weibo.ui.MainActivity;
-
 public class SplashScreen extends Activity {
 
     public void onCreate(Bundle bb) {
@@ -16,7 +14,7 @@ public class SplashScreen extends Activity {
 
 
         final Intent i = new Intent();
-        i.setClass(SplashScreen.this, MainActivity.class);
+        i.setClass(SplashScreen.this, AppMain.class);
 
         this.runOnUiThread(new Runnable() {
 
