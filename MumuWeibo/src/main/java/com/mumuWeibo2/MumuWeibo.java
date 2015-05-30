@@ -181,7 +181,8 @@ public class MumuWeibo extends Activity implements OnScrollListener {
         long max = Long.parseLong(maxId) - 1;
 
         StatusesAPI api = new StatusesAPI(AccessTokenKeeper.readAccessToken(MumuWeibo.this));
-        api.friendsTimeline(0l, max, 30, 1, false, WeiboAPI.FEATURE.ALL, false, new
+        final int maxMoreWeiboCount = 20;
+        api.friendsTimeline(0l, max, maxMoreWeiboCount, 1, false, WeiboAPI.FEATURE.ALL, false, new
                 GetMoreWeiboListener());
 
     }

@@ -70,10 +70,9 @@ public class AppMain extends ActivityGroup {
     static String app_secret = "e8e84282519e5a785d62482ce441f2be";
     static String redirectUrl = "http://api.weibo.com/oauth2/default.html";
 
-    private final int SEARCH_USER = Menu.FIRST;
-    private final int SHOW_PICTURE = Menu.FIRST + 1;
+    private final int CHANGE_USER = Menu.FIRST;
+    private final int SEARCH_USER = Menu.FIRST + 1;
     private final int BLOCK_WORDS = Menu.FIRST + 2;
-    private final int CHANGE_USER = Menu.FIRST + 3;
 
     public void onCreate(Bundle bb) {
         super.onCreate(bb);
@@ -308,22 +307,19 @@ public class AppMain extends ActivityGroup {
     //设置菜单项
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        menu.add(0, SEARCH_USER, 0, "搜索用户");
-
-        menu.add(0, BLOCK_WORDS, 1, "屏蔽关键字");
-
-        Oauth2AccessToken token = AccessTokenKeeper.readAccessToken(getApplicationContext());
         String login;
+        Oauth2AccessToken token = AccessTokenKeeper.readAccessToken(getApplicationContext());
         if (token.getToken().equals("")) {
             login = "用户登录";
         } else
             login = "更换账户";
-        menu.add(0, CHANGE_USER, 2, login);
+        menu.add(0, CHANGE_USER, 0, login);
 
-        if (MumuWeiboUtility.autoShowImage)
-            menu.add(0, SHOW_PICTURE, 3, "一直显示缩略图");
-        else
-            menu.add(0, SHOW_PICTURE, 3, "仅wifi下显示缩略图");
+
+        menu.add(0, SEARCH_USER, 1, "搜索用户");
+
+        menu.add(0, BLOCK_WORDS, 2, "屏蔽关键字");
+
         return true;
     }
 
@@ -331,13 +327,12 @@ public class AppMain extends ActivityGroup {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case SEARCH_USER:
-                showSearchDialog();
+            case CHANGE_USER:
+                changeUser();
                 break;
 
-            case CHANGE_USER:
-                //	AccessTokenKeeper.
-                changeUser();
+            case SEARCH_USER:
+                showSearchDialog();
                 break;
 
             case BLOCK_WORDS:
@@ -345,43 +340,12 @@ public class AppMain extends ActivityGroup {
                 i.setClass(AppMain.this, BlockWords.class);
                 startActivity(i);
                 break;
-            case SHOW_PICTURE:
-                //DO SOMETHING!
-                //Log.i("-----------------", "the isShow is "+MumuWeiboUtility.isShowImage);
-                if (MumuWeiboUtility.autoShowImage)
-                    MumuWeiboUtility.autoShowImage = false;
-                else
-                    MumuWeiboUtility.autoShowImage = true;
-
-                SharedPreferences settings = getSharedPreferences(MumuWeiboUtility.SETTING_INFO, 0);
-
-                settings.edit().putBoolean("isShowPic", MumuWeiboUtility.autoShowImage).commit();
-
-                //Log.i("-----------------", "the isShow is "+MumuWeiboUtility.isShowImage);
-
-                break;
-
             default:
                 ;
         }
         return true;
     }
 
-    public void onOptionsMenuClosed(Menu menu) {
-        MenuItem item = menu.findItem(SHOW_PICTURE);
-        if (MumuWeiboUtility.autoShowImage) item.setTitle("一直显示缩略图");
-        else
-            item.setTitle("仅在wifi下显示缩略图");
-    }
-
-    //开关显示缩略图
-    void showImageOrNot() {
-        SharedPreferences settings = getSharedPreferences(MumuWeiboUtility.SETTING_INFO, 0);
-        boolean isShow = settings.getBoolean("isShowPic", true);
-        if (isShow) isShow = false;
-        else isShow = true;
-        settings.edit().putBoolean("isShowPic", isShow).commit();
-    }
 
     //显示搜索用户对话框
     public void showSearchDialog() {
