@@ -41,11 +41,9 @@ public class UserWeibosShow extends Activity {
     MyListView lv;
     TextView title;
     String userName;
-    //String mid;
     long uid;
     String action = null;
     int prePos;
-    int listpos;
     int page = 1;
 
     boolean isMe = false;
@@ -85,9 +83,7 @@ public class UserWeibosShow extends Activity {
             @Override
             public void OnRefresh() {
                 // TODO Auto-generated method stub
-                //flushWeibo();
                 if (action.equals("favor")) {
-                    //getFavorWeibos();
                     lv.onRefreshComplete();
                 }
                 if (action.equals("comment")) {
@@ -96,8 +92,6 @@ public class UserWeibosShow extends Activity {
                     getAtMe();
                 } else if (action.equals("weibos")) {
                     getUserWeibos();
-                    //lv.onRefreshComplete();
-
                 }
 
             }
@@ -148,8 +142,7 @@ public class UserWeibosShow extends Activity {
             getAtMe();
             title.setVisibility(View.GONE);
         } else if (action.equals("comment")) {
-            title.setVisibility(View.GONE);
-            //title.setText("收到的评论");
+            title.setText("收到的评论");
             WeiboListAdapter adapter = new WeiboListAdapter(UserWeibosShow.this, MumuWeiboUtility
                     .CommentsList);
             lv.setAdapter(adapter);

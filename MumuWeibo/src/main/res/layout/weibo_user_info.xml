@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:fresco="http://schemas.android.com/apk/res-auto"
               android:layout_width="fill_parent"
@@ -13,7 +11,7 @@
     <TextView
         android:id="@+id/tv_user_name_in_title"
         android:layout_width="fill_parent"
-        android:layout_height="42dip"
+        android:layout_height="@dimen/title_height"
         android:background="@drawable/btn_action_negative_focused"
         android:gravity="center"
         android:text="用户信息"

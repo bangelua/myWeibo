@@ -133,7 +133,8 @@ public class AppMain extends ActivityGroup {
 
         this.mainIntent = new Intent(this, MumuWeibo.class);
         this.userIntent = new Intent(this, UserInfoShow.class);
-        this.msgIntent = new Intent(this, MsgHolder.class);
+        this.msgIntent = new Intent(this, UserWeibosShow.class);
+        msgIntent.putExtra("action", "comment");
 
         showView(1);
 
