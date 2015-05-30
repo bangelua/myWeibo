@@ -106,7 +106,7 @@ public class ShareOperation {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-	                /*下标是从0开始的*/
+                    /*下标是从0开始的*/
                 switch (which) {
                     case 0:  //comment
                         Intent ins = new Intent();
@@ -137,7 +137,7 @@ public class ShareOperation {
                         break;
                     case 3: //评论原微博
                         if (weiboInfo.getWeiboUser().getName().equals(MumuWeiboUtility.LoginUser
-								.getName())) {
+                                .getName())) {
 
                             deleteWeibo(context, weiboInfo.getId());
                         } else {

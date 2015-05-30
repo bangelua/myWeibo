@@ -731,7 +731,8 @@ public class AppMain extends ActivityGroup {
 
                 }
             });
-            //Toast.makeText(AppMain.this, WeiboErrorHelper.WeiboError(arg0), Toast.LENGTH_LONG).show();
+            //Toast.makeText(AppMain.this, WeiboErrorHelper.WeiboError(arg0), Toast.LENGTH_LONG)
+            // .show();
         }
 
         @Override

@@ -1,10 +1,5 @@
 package com.mumuWeibo2;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import org.json.JSONException;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -15,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -33,11 +27,16 @@ import com.weibo.sdk.android.api.WeiboAPI.SRC_FILTER;
 import com.weibo.sdk.android.api.WeiboAPI.TYPE_FILTER;
 import com.weibo.sdk.android.net.RequestListener;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
 
 //显示某个用户的最新微博列表
 public class UserWeibosShow extends Activity {
 
-    final String TAG = "TAG----->UserWeibosShow.class";
+    final String TAG = this.getClass().getSimpleName();
     MyListView lv;
     TextView title;
     String userName;
@@ -126,13 +125,12 @@ public class UserWeibosShow extends Activity {
         if (MumuWeiboUtility.LoginUser != null && MumuWeiboUtility.LoginUser.getId() == uid)
             isMe = true;
 
-        list = new ArrayList<WeiboInfo>();
+        list = new ArrayList<>();
         if (action != null && action.equals("favor")) {
             title.setText("收藏列表");
             getFavorWeibos();
         } else if (action.equals("weibos")) {
             title.setText("@" + userName);
-            //mid=String.valueOf(id);
             getUserWeibos();
         } else if (action.equals("@me")) {
             title.setText("@我");
@@ -150,21 +148,6 @@ public class UserWeibosShow extends Activity {
         }
     }
 
-
-    private OnClickListener btn_listener = new OnClickListener() {
-        @Override
-        public void onClick(View arg0) {
-            // TODO Auto-generated method stub
-            if (action != null && action.equals("favor")) getMoreFavors();
-            else if (action.equals("weibos"))
-                getMoreWeibos();
-            else if (action.equals("@me"))
-                getMoreAtMe();
-            else if (action.equals("comment"))
-                getMoreComment();
-
-        }
-    };
 
     private void getUserWeibos() {
 
@@ -413,7 +396,6 @@ public class UserWeibosShow extends Activity {
 
     private void getMoreFavors() {
         prePos = list.size();
-        final String maxId = list.get(prePos - 1).getWeiboId();
 
         FavoritesAPI api2 = new FavoritesAPI(AccessTokenKeeper.readAccessToken(UserWeibosShow
                 .this));
@@ -897,7 +879,6 @@ public class UserWeibosShow extends Activity {
             }
             if (action.equals("comment")) {
                 return true;
-                // weiboInfo0=MumuWeiboUtility.CommentsList.get(position);
             } else if (action.equals("@me")) {
                 context = getParent();
                 weiboInfo0 = MumuWeiboUtility.AtMsgList.get(position);
