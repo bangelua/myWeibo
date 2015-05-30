@@ -1,8 +1,5 @@
 package com.mumuWeibo2;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -10,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -25,6 +21,9 @@ import com.weibo.sdk.android.WeiboException;
 import com.weibo.sdk.android.api.CommentsAPI;
 import com.weibo.sdk.android.api.WeiboAPI.AUTHOR_FILTER;
 import com.weibo.sdk.android.net.RequestListener;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class CommentListShow extends ListActivity{	
 	
@@ -144,11 +143,11 @@ private Handler handler=new Handler();
 		   					break;
 		   				
 		               case 1://repost
-		            	    Intent ins2=new Intent();				
-		   					ins2.setClass(CommentListShow.this,UserInfoShow.class);
-		   					
-		   					ins2.putExtra("screen_name", weiboInfo.getWeiboUser().getName()); 
-		   					CommentListShow.this.startActivity(ins2);	
+//		            	    Intent ins2=new Intent();
+//		   					ins2.setClass(CommentListShow.this,UserInfoShow.class);
+//
+//		   					ins2.putExtra("screen_name", weiboInfo.getWeiboUser().getName());
+//		   					CommentListShow.this.startActivity(ins2);
 		   					break;
 		   					
 		                   	   

@@ -1,17 +1,15 @@
 package com.mumuWeibo2;
 
-import java.util.ArrayList;
-
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class FriendsListAdapter extends BaseAdapter{
 	
@@ -91,10 +89,10 @@ public class FriendsListAdapter extends BaseAdapter{
 		*/
 		holder.userProfileImage.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
-				Intent in=new Intent();
-				in.setClass(context, UserInfoShow.class);
-				in.putExtra("screen_name", username);
-				context.startActivity(in);
+//				Intent in=new Intent();
+//				in.setClass(context, UserInfoShow.class);
+//				in.putExtra("screen_name", username);
+//				context.startActivity(in);
 			}
 		});
 		

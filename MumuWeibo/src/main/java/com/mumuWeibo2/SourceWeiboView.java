@@ -155,10 +155,9 @@ public class SourceWeiboView extends LinearLayout {
 
             if (v == profile || v == username) {
                 if (user == null) return;
-                in.setClass(getContext(), UserInfoShow.class);
-                //in.putExtra("screen_name",username11);
-                in.putExtra("userinfo", user);
-                getContext().startActivity(in);
+//                in.setClass(getContext(), UserInfoShow.class);
+//                in.putExtra("userinfo", user);
+//                getContext().startActivity(in);
             } else if (v == weiboPic) {
                 in.setClass(getContext(), WeiboImageShow.class);
                 in.putExtra("IMAGE_URL_SMALL", smallPicUrl);

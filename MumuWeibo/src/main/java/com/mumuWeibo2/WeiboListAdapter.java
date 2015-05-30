@@ -1,7 +1,6 @@
 package com.mumuWeibo2;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,13 +88,11 @@ public class WeiboListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                //Toast.makeText(WeiboListAdapter.this.context, "show user info", Toast
-                // .LENGTH_LONG).show();
 
-                Intent intent = new Intent();
-                intent.setClass(context, UserInfoShow.class);
-                intent.putExtra("userinfo", user);
-                context.startActivity(intent);
+//                Intent intent = new Intent();
+//                intent.setClass(context, UserInfoShow.class);
+//                intent.putExtra("userinfo", user);
+//                context.startActivity(intent);
             }
         };
 

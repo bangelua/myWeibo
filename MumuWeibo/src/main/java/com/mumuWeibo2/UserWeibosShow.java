@@ -1,10 +1,5 @@
 package com.mumuWeibo2;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import org.json.JSONException;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -32,6 +27,11 @@ import com.weibo.sdk.android.api.WeiboAPI.FEATURE;
 import com.weibo.sdk.android.api.WeiboAPI.SRC_FILTER;
 import com.weibo.sdk.android.api.WeiboAPI.TYPE_FILTER;
 import com.weibo.sdk.android.net.RequestListener;
+
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 //显示某个用户的最新微博列表
@@ -857,10 +857,10 @@ public class UserWeibosShow extends Activity {
                                 break;
 
                             case 1://get user info
-                                Intent i = new Intent();
-                                i.setClass(UserWeibosShow.this, UserInfoShow.class);
-                                i.putExtra("screen_name", weiboInfo.getWeiboUser().getName());
-                                startActivity(i);
+//                                Intent i = new Intent();
+//                                i.setClass(UserWeibosShow.this, UserInfoShow.class);
+//                                i.putExtra("screen_name", weiboInfo.getWeiboUser().getName());
+//                                startActivity(i);
 
                                 break;
                             case 2:////check the source weibo

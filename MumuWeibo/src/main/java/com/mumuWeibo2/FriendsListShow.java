@@ -1,10 +1,5 @@
 package com.mumuWeibo2;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import org.json.JSONException;
-
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -25,6 +20,11 @@ import android.widget.Toast;
 import com.weibo.sdk.android.WeiboException;
 import com.weibo.sdk.android.api.FriendshipsAPI;
 import com.weibo.sdk.android.net.RequestListener;
+
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class FriendsListShow extends ListActivity{
 	
@@ -323,10 +323,10 @@ private Handler handler=new Handler();
 			long arg3) {
 		// TODO Auto-generated method stub
 		
-		Intent in=new Intent();
-		in.setClass(FriendsListShow.this, UserInfoShow.class);
-		in.putExtra("screen_name", list.get(arg2).getName());		
-		startActivity(in);
+//		Intent in=new Intent();
+//		in.setClass(FriendsListShow.this, UserInfoShow.class);
+//		in.putExtra("screen_name", list.get(arg2).getName());
+//		startActivity(in);
 		
 	}
 }
