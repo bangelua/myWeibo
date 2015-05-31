@@ -44,12 +44,12 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/bottombar_height">
 
         <ImageButton
             android:id="@+id/iv_face_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dip"
@@ -57,8 +57,8 @@
 
         <ImageButton
             android:id="@+id/iv_get_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dip"
             android:layout_toRightOf="@id/iv_face_list"
